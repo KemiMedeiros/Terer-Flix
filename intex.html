@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tereréflix 🎥</title>
+  <link rel="stylesheet" href="style.css"> <!-- Conexão com o CSS externo -->
+  <style>
+    .movie-details {
+      display: none; /* Oculta a seção de detalhes do filme inicialmente */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Título do Site -->
+  <header class="site-title">
+    <h1>🌿 Tereréflix 🎥</h1>
+  </header>
+
+  <!-- Menu de navegação com o pôster do filme -->
+  <div class="navbar">
+    <div class="movie-poster">
+      <img src="fnaf.jpg" alt="Poster do filme Five Nights At Freddy's">
+      <a href="#" onclick="showMovie('fnaf')">🎩 Five Nights At Freddy's</a>
+    </div>
+    <!-- Links para outros filmes podem ser adicionados aqui -->
+  </div>
+
+  <!-- Seção de detalhes do filme -->
+  <div id="movie-section" class="movie-details">
+    <h2 id="movie-title"></h2>
+    <p><strong>🎥 Sinopse:</strong> <span id="movie-synopsis"></span></p>
+    <p><strong>🎬 Gênero:</strong> <span id="movie-genre"></span></p>
+    <p><strong>🔞 Classificação:</strong> <span id="movie-rating"></span></p>
+    <div id="movie-trailer"></div>
+  </div>
+
+  <script>
+    // Dados do filme
+    const movies = {
+      "fnaf": {
+        title: "Five Nights At Freddy's - O Pesadelo Sem Fim",
+        synopsis: "Uma jornada aterrorizante onde monstros animatrônicos ganham vida após o anoitecer.",
+        genre: "Terror, Suspense",
+        rating: "16 anos",
+        trailerEmbed: '<iframe width="560" height="315" src="https://www.youtube.com/embed/h2lVX71L_3A?si=uu7SViI7xrog8Hh5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+      }
+    };
+
+    // Função para mostrar os detalhes do filme
+    function showMovie(movieId) {
+      const movie = movies[movieId];
+      if (movie) {
+        document.getElementById("movie-title").innerText = movie.title;
+        document.getElementById("movie-synopsis").innerText = movie.synopsis;
+        document.getElementById("movie-genre").innerText = movie.genre;
+        document.getElementById("movie-rating").innerText = movie.rating;
+        document.getElementById("movie-trailer").innerHTML = movie.trailerEmbed;
+        document.getElementById("movie-section").style.display = "block"; // Exibe a seção de detalhes
+      }
+    }
+  </script>
+
+</body>
+</html>
